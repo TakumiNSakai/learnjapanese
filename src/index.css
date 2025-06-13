@@ -33,3 +33,68 @@
   margin: 40px auto;
   padding: 20px;
 }
+.kana-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5,120px);
+  gap: 4px;
+}
+
+.cell {
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fdfdfd;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.kana {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.romaji {
+  font-size: 24px;
+  color: lightcoral;
+}
+
+
+.button {
+ background-color: #EA4C89;
+ border-radius: 8px;
+ border-style: none;
+ box-sizing: border-box;
+ color: #FFFFFF;
+ cursor: pointer;
+ display: inline-block;
+ font-size: 14px;
+ font-weight: 500;
+ height: 40px;
+ line-height: 20px;
+ list-style: none;
+ margin: 0;
+ outline: none;
+ padding: 10px 16px;
+ position: relative;
+ text-align: center;
+ text-decoration: none;
+ transition: color 100ms;
+ vertical-align: baseline;
+ user-select: none;
+ -webkit-user-select: none;
+ touch-action: manipulation;
+}
+
+.button:hover,
+.button-1:focus {
+background-color: #F082AC;
+}
