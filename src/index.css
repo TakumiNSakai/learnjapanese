@@ -1,100 +1,185 @@
+/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-/* base styles */
-* {
-  margin: 0;
-  font-family: "Quicksand";
-  color: #333;
+/* ========================
+   Root Variables
+======================== */
+:root {
+    --primary: #ea4c89;
+    --primary-hover: #f082ac;
+    --text-main: #333;
+    --bg-light: #fdfdfd;
+    --border-color: #ccc;
+    --radius: 8px;
 }
+
+/* ========================
+   Global Styles
+======================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    background-color: #fff;
+    color: var(--text-main);
+    padding: 1rem;
+}
+
+/* ========================
+   Navigation Bar
+======================== */
 .navbar {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    max-width: none;
+    margin: 0 auto;
+    border-bottom: 2px solid #f2f2f2;
 }
+
 .navbar h1 {
-  color: #f1356d;
+    color: var(--primary);
+
+
 }
+
 .navbar .links {
-  margin-left: auto;
+    margin-left: auto;
 }
+
 .navbar a {
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 6px;
+    color: var(--text-main);
+    transition: color 0.2s ease;
 }
+
 .navbar a:hover {
-  color: #f1356d;
+    color: var(--primary);
 }
+
+/* ========================
+   Page Content
+======================== */
 .content {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
+    max-width: none;
+    margin: 40px auto;
+    padding: 20px;
 }
+
+/* ========================
+   Kana Grid
+======================== */
+.active-type {
+    align-items: center;
+}
+
 .kana-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 1rem;
+    align-items: center;
 }
 
 .row {
-  display: grid;
-  grid-template-columns: repeat(5,120px);
-  gap: 4px;
+    display: grid;
+    grid-template-columns: repeat(5, 120px);
+    gap: 6px;
 }
 
 .cell {
-  text-align: center;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #fdfdfd;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background-color: var(--bg-light);
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.cell:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
 }
 
 .kana {
-  font-size: 36px;
-  font-weight: bold;
+    font-size: 36px;
+    font-weight: bold;
 }
 
 .romaji {
-  font-size: 24px;
-  color: lightcoral;
+    font-size: 20px;
+    color: #666;
 }
 
+/* ========================
+   Buttons
+======================== */
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
 
 .button {
- background-color: #EA4C89;
- border-radius: 8px;
- border-style: none;
- box-sizing: border-box;
- color: #FFFFFF;
- cursor: pointer;
- display: inline-block;
- font-size: 14px;
- font-weight: 500;
- height: 40px;
- line-height: 20px;
- list-style: none;
- margin: 0;
- outline: none;
- padding: 10px 16px;
- position: relative;
- text-align: center;
- text-decoration: none;
- transition: color 100ms;
- vertical-align: baseline;
- user-select: none;
- -webkit-user-select: none;
- touch-action: manipulation;
+    background-color: var(--primary);
+    border-radius: var(--radius);
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    padding: 10px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .button:hover,
-.button-1:focus {
-background-color: #F082AC;
+.button:focus {
+    background-color: var(--primary-hover);
+}
+
+/* ========================
+   Responsive
+======================== */
+@media (max-width: 600px) {
+    .row {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+
+    .kana {
+        font-size: 28px;
+    }
+
+    .romaji {
+        font-size: 16px;
+    }
+
+    .button-wrapper {
+        justify-content: center;
+    }
+
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar .links {
+        margin: 1rem 0 0;
+    }
 }

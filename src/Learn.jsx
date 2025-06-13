@@ -7,7 +7,10 @@ function groupByVowel(charList, sortOrder) {
 
     const sorted = [...charList].sort((a, b) => {
         return sortOrder.indexOf(a.kana) -  sortOrder.indexOf(b.kana);
+
     });
+    console.log("Sort order (last few):", sorted);
+
 
     sorted.forEach((char) => {
         const ending = char.romaji.slice(-1);
@@ -16,9 +19,11 @@ function groupByVowel(charList, sortOrder) {
         if (colIndex !== -1) {
             columns[colIndex].push(char);
         } else {
-            columns[0].push(char);
+            columns[4].push(char);
         }
     });
+    console.log("columns: " , columns);
+
     const maxRows = Math.max(...columns.map((col) => col.length));
     const gridRows = [];
     for (let i = 0; i < maxRows; i++) {
@@ -61,12 +66,13 @@ const Learn = () => {
     return (
         <div>
             {/* Toggle button to switch between Hiragana and Katakana */}
-            <button className = "button" onClick={handleToggle}>
-                Switch to {activeType === "hiragana" ? "Katakana" : "Hiragana"}
-            </button>
-
+            <div className="button-wrapper">
+                <button className = "button" onClick={handleToggle}>
+                    Switch to {activeType === "hiragana" ? "Katakana" : "Hiragana"}
+                </button>
+            </div>
             {/* Section heading */}
-            <h2>{activeType === "hiragana" ? "Hiragana (ひらがな)" : "Katakana (カタカナ)"}</h2>
+            <h2 className="active-type"> {activeType === "hiragana" ? "Hiragana (ひらがな)" : "Katakana (カタカナ)"}</h2>
 
             {/* Render the kana grid */}
             <div className="kana-grid">{grid}</div>
